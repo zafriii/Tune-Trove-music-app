@@ -1,0 +1,233 @@
+.heading{
+    color: white;
+    font-family: "Protest Riot", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.heading .playlist{
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+
+.song-container{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+
+.image-container img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.card-container{
+
+   background: rgba(255, 255, 255, 0.2);
+   border-radius: 16px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(5px);
+   -webkit-backdrop-filter: blur(5px);
+   border: 1px solid rgba(255, 255, 255, 0.3);
+   width: 90%;
+   height: 470px;
+   display: flex;
+   flex-direction: column;
+   margin-top: 100px;
+   margin-left: 80px;
+   margin-bottom: 50px;
+   
+}
+
+
+.card-container:hover {
+      
+       transition: all 0.3s ease-in-out;
+       cursor: pointer;
+       opacity: 0.8;
+   }
+
+   .image-container, .song-name, .artist-name , .audio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.audio audio{
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+
+
+.btn-container{
+
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-family: "Protest Riot", sans-serif;
+    background: linear-gradient(135deg, #ff006a, #7374c7);
+
+}
+
+.btn-container button{
+    padding: 10px 20px;
+    border: 2px solid #380ff1;
+    background-color: #380ff1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border-radius: 60px;
+    color: white;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-container button:hover{
+    
+    transform: scale(1.2);
+
+}
+
+.song-name .like{
+    background: white;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    margin-left: 30px;
+    font-size:30px;
+    color: #ff006a;
+    cursor: pointer;
+}
+
+
+.song-name .like:hover{
+    transform: scale(1.2);
+}
+
+.search input{
+    padding: 10px 20px ;
+    margin-left: 100px;
+    border-radius: 10px;
+    border: #ff006a;
+    outline: none;
+}
+
+
+@media (max-width:1200px) {
+    .song-container{
+        display: grid;
+        grid-template-columns:50% 50% ;
+        margin-left: -30px;
+    }
+
+    .card-container{
+
+       
+        width: 75%;
+        height: 470px;
+        margin-top: 100px;
+        margin-left: 85px;
+        margin-bottom: 50px;
+        
+     }
+}
+
+
+
+@media (max-width:880px) {
+    .song-container{
+        display: grid;
+        grid-template-columns:100% ;
+        margin-left: 10px;
+    }
+
+    .card-container{
+
+       
+        width: 70%;
+        height: 470px;
+        margin-top: 100px;
+        margin-left: 85px;
+        margin-bottom: 50px;
+        
+     }
+
+     .btn-container{
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+     }
+
+     .search input{
+        margin-bottom: 20px;
+        margin-left: -10px;
+     }
+}
+
+
+
+
+
+
+@media (max-width:600px) {
+    .song-container{
+        display: grid;
+        grid-template-columns:100% ;
+        margin-left: -50px;
+    }
+
+    .card-container{
+
+       
+        width: 75%;
+        height: 470px;
+        margin-top: 100px;
+        margin-left: 85px;
+        margin-bottom: 50px;
+        
+     }
+
+     .btn-container{
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+     }
+
+     .search input{
+        margin-bottom: 20px;
+        margin-left: -10px;
+     }
+}
+
+@media (max-width:390px) {
+    
+
+    .card-container{
+       margin-left: 70px;      
+     }
+
+     .card-container{
+     
+        width: 78%;
+    }
+
+     .btn-container button{
+        margin-left: 10px;
+     }
+
+     .search input{
+        margin-bottom: 10px;
+       
+     }
+}

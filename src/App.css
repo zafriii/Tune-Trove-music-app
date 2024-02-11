@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poor+Story&family=Protest+Riot&display=swap');
+
+body
+{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, rgb(136, 10, 136),rgb(100, 23, 100), #2a1058,  #6238ac );
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+}
+
+@keyframes color{
+
+0%{
+background-position: 0 50%;
+}
+
+
+50%{
+    background-position: 100% 50%;
+    }
+    
+
+
+    100%{
+        background-position: 0 50%;
+        }
+        
+
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Protest Riot", sans-serif;
+  background: linear-gradient(135deg, #ff006a, #7374c7);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo{
+  margin-left: 10px;
+  color: purple;
+}
+
+.nav-logo span{
+  color: rgb(0, 132, 255);
+}
+
+.nav-links{
+  display: flex;
+  margin-right: 20px;
+  gap: 40px;
+  font-size: 20px;
+  
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: aliceblue;
+    
+}
+
+.nav-links a:hover{
+  text-decoration: 2px solid underline;
+  
+  
+}
+
+
+.image{
+ display: flex;
+}
+
+.container img{
+  width:100%;
+  height: 800px;
+  
+}
+
+.container .text h3{
+  
+  text-shadow: 3px 3px 5px white;
+  font-size: 45px;
+  margin-left: 10px;
+  position: absolute;
+  top:400px;
+  left:650px;
+  color: white;
+  background-position:center;
+}
+
+ .container .text p{
+    
+    /* text-shadow: 3px 3px 5px white; */
+    font-size: 25px;
+    margin-left: 10px;
+    position: absolute;
+    top:500px;
+    left:500px;
+    color: white;
+    background-position:center;
+}
+
+
+.container-2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+  font-size: 20px; 
+}
+
+.container-2 .start{
+    padding: 10px 20px;
+    border: 2px solid #380ff1;
+    background-color: #380ff1;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.container-2 .start:hover{
+  opacity: 0.8;
+}
+
+.upper-foot
+  {
+      height: 300px;
+      background-color: #281154;
+      color: white;
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 50px;
+  }
+  
+  .upper-foot h4
+  {
+     margin-top: 30px;
+     border-bottom: 2px solid white;
+     margin-bottom: 10px;
+     padding-bottom: 10px;
+  }
+  
+  .upper-foot a
+  {
+      display: block;
+      text-decoration:none ;
+      color: white;
+      padding-top: 10px;
+  }
+  
+  .upper-foot a:hover{
+      text-decoration: underline;
+      color: white;
+  }
+  
+  .lower-foot
+  {
+      height: 40px;
+      background-color: #1b0058;
+      color: white;
+      display: flex;
+      align-items: center;
+     justify-content: center;
+  
+  }
+
+  @media (max-width: 600px) {
+    
+
+    .container  .text h3
+    {
+            
+        top:350px;
+        left:100px;
+        padding-top: 10px;
+           
+    }
+    
+    .container  .text p
+    {
+             
+        top:450px;
+        left:50px;
+            
+    }
+
+    .container-2 p{
+        font-size: 15px;
+        margin-left: 20px;
+    }
+    
+
+  }
+
+  @media (max-width: 430px) {
+    
+
+    .container  .text h3
+    {
+            
+        top:380px;
+        left:60px;
+        padding-top: 10px;
+        font-size: 40px;
+           
+    }
+    
+    .container  .text p
+    {
+             
+        top:500px;
+        left:30px;
+        font-size: 22px;
+    }
+
+
+
+    .upper-foot
+  {
+      height: 300px;
+      margin-top: 100px;
+    
+  }
+
+
+  .upper-foot h4
+  {
+     margin-top: 30px;
+     border-bottom:none;
+     margin-bottom: 10px;
+     padding-bottom: 10px;
+     margin-left: 10px;
+     font-size: 15px;
+  }
+  
+  .upper-foot a
+  {
+      display: block;
+      text-decoration:none ;
+      color: white;
+      padding-top: 10px;
+      margin-left: 10px;
+      font-size: 12px;
+  }
+
+
+  .lower-foot
+  {
+      font-size: 15px;
+  
+  } 
+
+    
+
+  }
