@@ -7,8 +7,6 @@ import { FaHeadphones } from "react-icons/fa";
 
 function Songs() {
 
-// const [items, setItems] = useState(SongData);
-
 const [searchTerm, setSearchTerm] = useState('');
 const [searchResults, setSearchResults] = useState([]);
 
@@ -16,15 +14,10 @@ const [searchResults, setSearchResults] = useState([]);
 const [favoriteSongIds, setFavoriteSongIds] = useState([]);
 
 
-
-// const filterItem = (typeItem) => {
-//   const updatedItem = SongData.filter((curElem) => {
-//     return curElem.type === typeItem
-//   })
-
-//   setItems(updatedItem);
-// }
-
+const [currentSongIndex, setCurrentSongIndex] = useState(null);
+const [isPlaying, setIsPlaying] = useState(false);
+const [currentTime, setCurrentTime] = useState(0);
+const [duration, setDuration] = useState(0);
 
 
 const filterItem = (typeItem) => {
@@ -60,6 +53,55 @@ const toggleFavorite = (id) => {
 const isFavorite = (id) => {
   return favoriteSongIds.includes(id);
 };
+
+
+
+const audioRefs = useRef([]);
+
+const togglePlay = (index) => {
+  const audio = audioRefs.current[index];
+  const prevAudio = audioRefs.current[currentSongIndex];
+  
+  if (index === currentSongIndex && isPlaying) {
+    audio.pause();
+    setIsPlaying(false);
+  } else {
+    if (prevAudio) {
+      prevAudio.pause(); 
+    }
+    audio.play();
+    setIsPlaying(true);
+    setCurrentSongIndex(index);
+  }
+};
+
+
+
+const updateTime = (index) => {
+ 
+  if (index === currentSongIndex) {
+    const audio = audioRefs.current[index];
+    setCurrentTime(audio.currentTime);
+    setDuration(audio.duration);
+  }
+};
+
+
+
+const formatTime = (time) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+};
+
+
+const downloadSong = (audioSrc, fileName) => {
+  const link = document.createElement('a');
+  link.href = audioSrc;
+  link.download = fileName;
+  link.click();
+};
+
 
 
   return (
@@ -101,7 +143,7 @@ const isFavorite = (id) => {
 
         {             
 
-                    searchResults.map((curElem) => {
+                    searchResults.map((curElem , index) => {
 
 
                         return (
@@ -133,6 +175,14 @@ const isFavorite = (id) => {
                                         {isFavorite(curElem.id) ? <FaHeart /> : <FaHeartCirclePlus />}
                                     </button>
 
+
+                                    <button
+                                    className="download"
+                                    onClick={() => downloadSong(curElem.audio, curElem.name)}
+                                  >
+                                    <FaDownload />
+                                  </button>
+
                                      
 
                                     </div>  
@@ -145,46 +195,59 @@ const isFavorite = (id) => {
                                     </div>  
 
 
-                                     <div className="audio">
+                                     <div className="audio" key={curElem.id}>
 
-                                    <audio controls>
+                                    {/* <audio controls>
 
                                     <source src={curElem.audio} type="audio/mp3" />
 
                                     Your browser does not support the audio element.
-                                    </audio> 
+                                    </audio>  */}
 
-                                   
-                                    
-                                      </div>
+
+                                  
+                                <audio
+                                ref={(element) => (audioRefs.current[index] = element)}
+                                src={curElem.audio}
+                                type="audio/mp3"
+                                onTimeUpdate={() => updateTime(index)}
+                                onEnded={() => setIsPlaying(false)}
+                                ></audio>
+
+                              <div className='player'>
+                                <button className='play-pause' onClick={() => togglePlay(index)}>
+                                  {currentSongIndex === index && isPlaying ? <FaCirclePause /> : <FaPlayCircle />}
+                                </button>
+                                <span>{formatTime(currentTime)}</span> /{' '}
+                                <span>{formatTime(duration)}</span>
+                                
+                              </div>
+
+                                                                                                         
+                                    </div>
 
 
 
                                     </div>        
                                         
-                                    </div>    
-
-                                   
-                            
+                                    </div>                            
 
                         )
 
                 })
-              
-              
-
+                            
         }
+
 
 
     </div>
     
-    
-    
-    
-    
-    
+     
     
     </>
+    
+    
+    
   )
 }
 
