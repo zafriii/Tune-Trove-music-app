@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SongData from './SongData.jsx'
 import './song.css'
 import { FaHeartCirclePlus, FaHeart} from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
 import { FaHeadphones } from "react-icons/fa";
+import { FaPlayCircle } from "react-icons/fa";
+import { FaCirclePause , FaDownload } from "react-icons/fa6";
+
 
 function Songs() {
+
+
 
 const [searchTerm, setSearchTerm] = useState('');
 const [searchResults, setSearchResults] = useState([]);
@@ -72,9 +76,9 @@ const togglePlay = (index) => {
     audio.play();
     setIsPlaying(true);
     setCurrentSongIndex(index);
+    
   }
 };
-
 
 
 const updateTime = (index) => {
@@ -85,7 +89,6 @@ const updateTime = (index) => {
     setDuration(audio.duration);
   }
 };
-
 
 
 const formatTime = (time) => {
@@ -102,6 +105,8 @@ const downloadSong = (audioSrc, fileName) => {
   link.click();
 };
 
+
+const favoriteSongs = searchResults.filter(song => favoriteSongIds.includes(song.id));
 
 
   return (
@@ -197,13 +202,6 @@ const downloadSong = (audioSrc, fileName) => {
 
                                      <div className="audio" key={curElem.id}>
 
-                                    {/* <audio controls>
-
-                                    <source src={curElem.audio} type="audio/mp3" />
-
-                                    Your browser does not support the audio element.
-                                    </audio>  */}
-
 
                                   
                                 <audio
@@ -212,14 +210,35 @@ const downloadSong = (audioSrc, fileName) => {
                                 type="audio/mp3"
                                 onTimeUpdate={() => updateTime(index)}
                                 onEnded={() => setIsPlaying(false)}
+                             
                                 ></audio>
 
+
+                              <div className="song-range">
+
+
+                              <input
+                              type="range"
+                              min={0}
+                              max={duration}
+                              value={currentTime}
+                              onChange={(e) => {
+                                const time = parseFloat(e.target.value);
+                                setCurrentTime(time);
+                                audioRefs.current[currentSongIndex].currentTime = time;
+                              }}
+                            />
+
+                                </div>
+
+
                               <div className='player'>
+
                                 <button className='play-pause' onClick={() => togglePlay(index)}>
                                   {currentSongIndex === index && isPlaying ? <FaCirclePause /> : <FaPlayCircle />}
                                 </button>
                                 <span>{formatTime(currentTime)}</span> /{' '}
-                                <span>{formatTime(duration)}</span>
+                                <span>{curElem.song_duration}</span>
                                 
                               </div>
 
@@ -236,18 +255,51 @@ const downloadSong = (audioSrc, fileName) => {
 
                 })
                             
-        }
-
+        };
 
 
     </div>
-    
-     
+
+
+
+                 <div className="fav-container">
+
+                      <h3>Keep Track  of Your Favorites  Here :</h3>
+
+                        {
+
+                    favoriteSongs.map((curElem , index) => {
+
+                      const serialNumber = index + 1;
+
+                      return (
+                        <div className="fav-card-container" key={curElem.id}>
+                          {/* Render favorite song card */}
+
+                         
+                          <div className="fav-image-container">
+                          
+
+                            <img src={curElem.image}></img>
+
+                            </div>
+
+                          <div className="fav-song-name">
+
+                            <p>{serialNumber}. {curElem.name}</p> 
+
+                          </div>
+
+                        </div>
+                      );
+                    })
+
+
+                        }
+                        
+                    </div>         
     
     </>
-    
-    
-    
   )
 }
 
