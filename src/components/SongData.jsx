@@ -6,7 +6,8 @@ const SongData = [
     type: "hindi",
     image: "/images/apnabanale.jpg",
     artist: "Arijit Singh",
-    audio: "/audios/apnabanale.mp3"
+    audio: "/audios/apnabanale.mp3",
+    song_duration:"03:24"
    
 },
 
@@ -16,8 +17,8 @@ const SongData = [
     type: "hindi",
     image: "/images/gulimata.jpeg" ,
     artist: "Laam Zarred, Shreya Ghosal",
-    audio:"/audios/gulmata.mp3" 
-   
+    audio:"/audios/gulmata.mp3" ,
+    song_duration:"03:55"
    
 },
 
@@ -27,7 +28,8 @@ const SongData = [
     type: "hindi",
     image: "/images/tereliye.jpg" ,
     artist: "Atif Aslam, Shreya Ghosal",
-    audio:"/audios/tereliye.mp3" 
+    audio:"/audios/tereliye.mp3",
+    song_duration:"04:39" 
    
 },
 
@@ -38,7 +40,8 @@ const SongData = [
     type: "english",
     image: "/images/one.png" ,
     artist: "One Direction",
-    audio:"/audios/nightchanges.mp3" 
+    audio:"/audios/nightchanges.mp3" ,
+    song_duration:"04:00"
 
 },
 
@@ -49,7 +52,8 @@ const SongData = [
     type: "english",
     image: "/images/under.jpg" ,
     artist: "Chris Brown",
-    audio:"/audios/undertheinfluence.mp3" 
+    audio:"/audios/undertheinfluence.mp3" ,
+    song_duration:"03:02"
 
 },
 
@@ -61,7 +65,8 @@ const SongData = [
     type: "english",
     image: "/images/people.jpg" ,
     artist: "Libianka",
-    audio:"/audios/people.mp3" 
+    audio:"/audios/people.mp3",
+    song_duration:"03:04" 
 
 },
 
@@ -73,7 +78,8 @@ const SongData = [
     type: "bangla",
     image: "/images/bhalobashbo.jpg" ,
     artist: "Habib Wahid",
-    audio:"/audios/bhalobashbo.mp3" 
+    audio:"/audios/bhalobashbo.mp3" ,
+    song_duration:"05:18"
 
 },
 
@@ -84,7 +90,8 @@ const SongData = [
     type: "bangla",
     image: "/images/nithur.jpg" ,
     artist: "Ishaan Mozumder",
-    audio:"/audios/nithurmonohor.mp3" 
+    audio:"/audios/nithurmonohor.mp3" ,
+    song_duration:"04:41"
 
 },
 
@@ -95,7 +102,8 @@ const SongData = [
     type: "hindi",
     image: "/images/janiye.jpg" ,
     artist: "Vishal Mishra",
-    audio:"/audios/janiye.mp3" 
+    audio:"/audios/janiye.mp3" ,
+    song_duration:"03:33"
    
 }
 
