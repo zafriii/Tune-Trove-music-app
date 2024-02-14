@@ -10,7 +10,7 @@ function Songs() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const [favoriteSongIds, setFavoriteSongIds] = useState([]);
+  const [favoriteSongIds, setFavoriteSongIds] = useState(JSON.parse(localStorage.getItem("favoriteSongIds")) ||[]);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -99,6 +99,10 @@ function Songs() {
     favoriteSongIds.includes(song.id)
   );
 
+  useEffect(() => {
+    localStorage.setItem("favoriteSongIds", JSON.stringify(favoriteSongIds));
+  }, [favoriteSongIds]);
+
   return (
     <>
       <div className="btn-container">
@@ -132,10 +136,6 @@ function Songs() {
                 <img src={curElem.image}></img>
               </div>
 
-
-
-
-
               <div className="song">
                 <div className="song-name">
                   <h3>{curElem.name}</h3>
@@ -160,10 +160,6 @@ function Songs() {
                     <FaDownload />
                   </button>
                 </div>
-
-
-
-
 
                 <div className="artist-name">
                   <h3>{curElem.artist}</h3>
@@ -227,8 +223,7 @@ function Songs() {
 
           return (
             <div className="fav-card-container" key={curElem.id}>
-              {/* Render favorite song card */}
-
+             
               <div className="fav-image-container">
                 <img src={curElem.image}></img>
               </div>
@@ -247,3 +242,4 @@ function Songs() {
 }
 
 export default Songs;
+
