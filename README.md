@@ -9,4 +9,4 @@ Currently, two official plugins are available:
 - 
 check the live site - https://tune-trove-musicapp.netlify.app
 
-- A music website using dataset of songs, button clicked filtering based on languages, a search filter provides songs that are available in the dataset, can keep the track of favourite songs clicking the toggling like button, can download song as well.
+- A music website utilizing a dataset of songs, allowing users to filter songs based on languages with the click of a button. The search filter provides songs available in the dataset. Additionally, users can keep track of favorite songs by clicking the toggle-like button & also can remove it, and they can also download songs.
