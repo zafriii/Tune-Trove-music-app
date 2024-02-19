@@ -8,3 +8,5 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 - 
 check the live site - https://tune-trove-musicapp.netlify.app
+
+- A music website using dataset of songs, button clicked filtering based on languages, a search filter provides songs that are available in the dataset, can keep the track of favourite songs clicking the toggling like button, can download song as well.
